@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('./app_server/models/db');
 
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -32,6 +33,11 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+/*
+var listener = app.listen(3000, function(){
+    console.log(' Express Server listening on port ' + listener.address().port); //Listening on port 8888
+});
+*/
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
